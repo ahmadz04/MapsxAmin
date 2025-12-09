@@ -1,29 +1,11 @@
 import Link from "next/link";
+import Navbar from "./components/Navbar";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="border-b border-gray-200">
-        <div className="mx-auto max-w-5xl px-6 lg:px-8">
-          <div className="flex h-16 items-center justify-between">
-            <div className="text-xl font-medium text-gray-900">
-              MAPS × AMIN
-            </div>
-            <div className="hidden md:flex items-center gap-8">
-              <Link href="#about" className="text-sm text-gray-600 hover:text-gray-900">
-                About
-              </Link>
-              <Link href="#volunteers" className="text-sm text-gray-600 hover:text-gray-900">
-                Volunteers
-              </Link>
-              <Link href="#contact" className="text-sm text-gray-600 hover:text-gray-900">
-                Contact
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Navbar currentPage="home" />
 
       {/* Hero Section */}
       <section className="px-6 py-24 lg:px-8">
@@ -35,9 +17,11 @@ export default function Home() {
             <p className="mx-auto mb-12 max-w-2xl text-lg text-gray-600 font-light">
               A volunteer management platform connecting educators with students across tutoring sites.
             </p>
-            <button className="bg-gray-900 px-8 py-3 text-sm font-medium text-white hover:bg-gray-800">
-              Get Started
-            </button>
+            <Link href="/auth">
+              <button className="bg-blue-600 px-8 py-3 text-sm font-medium text-white hover:bg-blue-700 transition-colors rounded-lg">
+                Get Started
+              </button>
+            </Link>
           </div>
         </div>
       </section>
@@ -112,7 +96,7 @@ export default function Home() {
                 description: "Monitor volunteer hours and progress"
               }
             ].map((feature, idx) => (
-              <div key={idx} className="border-l-2 border-gray-900 pl-6">
+              <div key={idx} className="border-l-2 border-blue-600 pl-6">
                 <h3 className="mb-2 text-lg font-medium text-gray-900">{feature.title}</h3>
                 <p className="text-gray-600 font-light">{feature.description}</p>
               </div>
@@ -128,9 +112,11 @@ export default function Home() {
           <p className="mb-8 text-gray-600 font-light">
             Join our volunteer network and help students succeed
           </p>
-          <button className="bg-gray-900 px-8 py-3 text-sm font-medium text-white hover:bg-gray-800">
-            Become a Volunteer
-          </button>
+          <Link href="/auth">
+            <button className="bg-blue-600 px-8 py-3 text-sm font-medium text-white hover:bg-blue-700 transition-colors rounded-lg">
+              Become a Volunteer
+            </button>
+          </Link>
         </div>
       </section>
 
@@ -139,12 +125,15 @@ export default function Home() {
         <div className="mx-auto max-w-5xl">
           <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
             <div className="text-sm text-gray-600">
-              &copy; 2025 MAPS × AMIN
+              &copy; 2025 MAPS × AMIN 🐻
             </div>
             <div className="flex gap-6 text-sm">
-              <Link href="#about" className="text-gray-600 hover:text-gray-900">About</Link>
-              <Link href="#volunteers" className="text-gray-600 hover:text-gray-900">Volunteers</Link>
-              <Link href="#contact" className="text-gray-600 hover:text-gray-900">Contact</Link>
+              <Link href="#about" className="text-gray-600 hover:text-blue-600 transition-colors">About</Link>
+              <Link href="/sites" className="text-gray-600 hover:text-blue-600 transition-colors">Sites</Link>
+              <Link href="/student-base" className="text-gray-600 hover:text-blue-600 transition-colors">Student Base</Link>
+              <Link href="/resource-vault" className="text-gray-600 hover:text-blue-600 transition-colors">Resource Vault</Link>
+              <Link href="#volunteers" className="text-gray-600 hover:text-blue-600 transition-colors">Volunteers</Link>
+              <Link href="#contact" className="text-gray-600 hover:text-blue-600 transition-colors">Contact</Link>
             </div>
           </div>
         </div>
